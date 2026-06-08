@@ -1,0 +1,89 @@
+function login(){
+
+let naam =
+document.getElementById("username").value;
+
+if(naam){
+
+localStorage.setItem("user",naam);
+
+window.location.href =
+"profile.html";
+
+}
+
+}
+
+function register(){
+
+let naam =
+document.getElementById("newuser").value;
+
+if(naam){
+
+localStorage.setItem("user",naam);
+
+alert("Account gemaakt!");
+
+window.location.href =
+"profile.html";
+
+}
+
+}
+
+function laadProfiel(){
+
+let user =
+localStorage.getItem("user");
+
+if(user){
+
+document.getElementById("welkom")
+.innerHTML =
+"Welkom " + user + "!";
+
+}
+else{
+
+window.location.href =
+"login.html";
+
+}
+
+}
+
+function logout(){
+
+localStorage.removeItem("user");
+
+window.location.href =
+"index.html";
+
+}
+
+function zoekSpel(){
+
+let filter =
+document.getElementById("search")
+.value.toUpperCase();
+
+let spellen =
+document.querySelectorAll(".game");
+
+spellen.forEach(function(spel){
+
+if(
+spel.innerText
+.toUpperCase()
+.includes(filter)
+){
+spel.style.display="";
+}
+else{
+spel.style.display="none";
+}
+
+});
+
+}
